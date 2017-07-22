@@ -1,0 +1,67 @@
+{
+  "name": "hapi-login-example-postgres",
+  "version": "1.2.2",
+  "description": "Example of building a registration/login flow using Hapi.js and PostgreSQL",
+  "main": "index.js",
+  "directories": {
+    "example": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "create": "node test/_create_table.js",
+    "coverage": "istanbul cover ./node_modules/tape/bin/tape ./test/*.test.js  | node_modules/tap-spec/bin/cmd.js",
+    "fast": "./node_modules/tape/bin/tape ./test/*.test.js",
+    "test": "npm run create && npm run coverage",
+    "dev": "PORT=8000 ./node_modules/.bin/nodemon lib/server.js",
+    "start": "npm run create && node lib/server.js",
+    "check-coverage": "npm run coverage && node_modules/.bin/istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwyl/hapi-login-example-postgres.git"
+  },
+  "keywords": [
+    "hapi",
+    "registration",
+    "plugin",
+    "example",
+    "Postgres",
+    "PostgreSQL"
+  ],
+  "author": "dwyl",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/dwyl/hapi-login-example-postgres/issues"
+  },
+  "homepage": "https://github.com/dwyl/hapi-login-example-postgres#readme",
+  "dependencies": {
+    "aguid": "^1.0.4",
+    "bcrypt": "^0.8.7",
+    "boom": "^4.2.0",
+    "env2": "^2.1.1",
+    "handlebars": "^4.0.5",
+    "hapi": "^15.2.0",
+    "hapi-auth-jwt2": "^7.1.3",
+    "hapi-login": "^1.2.2",
+    "hapi-postgres-connection": "^6.1.0",
+    "hapi-register": "^1.1.0",
+    "hoek": "^4.1.0",
+    "joi": "^9.2.0",
+    "jsonwebtoken": "^7.0.0",
+    "pg": "^6.1.0",
+    "pg-escape": "^0.2.0",
+    "validator": "^6.1.0",
+    "vision": "^4.1.0"
+  },
+  "devDependencies": {
+    "decache": "^4.1.0",
+    "istanbul": "^0.4.5",
+    "nodemon": "^1.11.0",
+    "pre-commit": "^1.1.3",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.2"
+  },
+  "pre-commit": [
+    "check-coverage"
+  ]
+}
