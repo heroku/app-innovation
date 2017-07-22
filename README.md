@@ -7,15 +7,7 @@
 
 A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with a PostgreSQL DB
 
-[![Build Status](https://travis-ci.org/dwyl/hapi-login-example-postgres.svg?branch=master)](https://travis-ci.org/dwyl/hapi-login-example-postgres)
-[![codecov.io](http://codecov.io/github/dwyl/hapi-login-example-postgres/coverage.svg?branch=master)](http://codecov.io/github/dwyl/hapi-login-example-postgres?branch=master)
-[![Code Climate](https://codeclimate.com/github/dwyl/hapi-login-example-postgres/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-login-example-postgres)
-[![Dependency Status](https://david-dm.org/dwyl/hapi-login-example-postgres.svg)](https://david-dm.org/dwyl/hapi-login-example-postgres)
-[![devDependencies Status](https://david-dm.org/dwyl/hapi-login-example-postgres/dev-status.svg)](https://david-dm.org/dwyl/hapi-login-example-postgres?type=dev)
-[![HitCount](https://hitt.herokuapp.com/dwyl/hapi-login-example-postgres.svg)](https://github.com/dwyl/hapi-login-example-postgres)
-
 ## What?
-
 This repo is a *showcase* for how to build a login flow using Hapi.js.  
 We use the following plugins:
 + [**hapi-register**](https://github.com/dwyl/hapi-register)
@@ -23,97 +15,146 @@ We use the following plugins:
 + [**hapi-postgres-connection**](https://github.com/dwyl/hapi-postgres-connection)
 + [**hapi-auth-jwt2**](https://github.com/dwyl/hapi-auth-jwt2)
 
-Each one is *hand-crafted*, *tested* and *maintained* by [*us*](https://github.com/dwyl),
-feel free to use the code how ever you see fit.
+# App-Innovation-Workshop - Exercises
 
-> Note: If you have requests/suggestions for how to *extend* this example,
-[*please let us know!*](https://github.com/dwyl/hapi-login-example-postgres)
-
-### Highlights:
-
-+ ALL values inserted into the database are *escaped* using
-[`pg-escape`](https://github.com/segmentio/pg-escape)
-(*made by [@TJ](https://github.com/tj) & Co ... so you know its good*)
-+ We use [`Joi`](https://github.com/hapijs/joi) for validation - which
-we display in the client UI. (*see screenshots below*)
-
-## Try it: https://hapi-login.herokuapp.com/
-
-![login form](https://cloud.githubusercontent.com/assets/194400/10523082/6e7fab3c-7370-11e5-91e2-639fc725b3e6.png)
-
-## How?
-
-The best way to get started is to run this example *locally*.
-
-> Please ***ensure*** you have ***PostgreSQL Installed and Running*** on your local machine
-***before*** you attempt to run this example.
-> see: https://wiki.postgresql.org/wiki/Detailed_installation_guides
-
-#### 1. Clone the repo:
-
-```sh
-git clone https://github.com/dwyl/hapi-login-example-postgres.git
-cd hapi-login-example-postgres
+# 1 - Setup on Cloud9
+- Create a Cloud9 Account
+- Fork the Github repo (https://github.com/samuelsharaf/app-innovation-workshop) to your github account.
+- On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation-workshop you will use the following command:
 ```
-#### 2. Install *Dependencies* from NPM
-
-```sh
-npm install
+git clone https://github.com/samuelsharaf/app-innovation-workshop
 ```
+- Once the cloud9 repo is created, Run this command:
+  ```
+  sh setup.sh && . ~/.profile
+  ```
 
-#### 3. Ensure you have the Required Environment Variables
-
-create an `.env` file in your `hapi-login-example-postgres` directory.
-add a line for your `DATABASE_URL` variable and one for `JWT_SECRET`:
-e.g:
-```sh
-export DATABASE_URL=postgres://postgres:@localhost/test
-export JWT_SECRET=https://git.io/vaN7A
+  
+# 2 - Deploy to Heroku and fix the error
+From the command-line in Cloud9 run the following commands:
 ```
-> default on mac is: export DATABASE_URL=postgres://postgres:@localhost/test  
-> if you don't *already* have a database called `test` on your system,  
-> create it now by running this command in your psql/pgadmin: `CREATE DATABASE test;`
+heroku login
+heroku apps:create
+git push heroku master
+```
+Open your Heroku app is it running? 
+Check the logs and identify what it needs.
+Add the required dependency.
 
-#### 4. Run the Tests
+# 3 - Monitoring: Exercise
+## Offense
+You are a hacker. You live in eastern hackistan. You have a contract with EvilCorp to take down a site that competes with them. Your mission is to take down WellCo!
+The discovery phase of your attack has already been completed. A colleague of yours has identified several HTTP endpoints that seem to have weaknesses:
 
-```sh
-npm test
+- `/messages`
+- `/clocks`
+- `/rockets`
+- `/beverages`
+- `/maps`
+- `/pipes`
+- `/bins`
+- `/handles`
+- `/children`
+
+Your task is to pick one of these endpoints, and attack it with everything you have. Try to take down WellCo:
+
+```
+artillery quick --duration 60 --rate 10 -n 20 http://my.app.dev/api/resource
 ```
 
-**Note**: running `npm test` will first execute `npm run create` which creates
-the necessary Database Tables to run the app. see:
-[/test/database_setup.sql](https://github.com/dwyl/hapi-login-example-postgres/blob/master/test/database_setup.sql)
+If and when the WellCo engineer can identify the endpoint you are attacking, they will block it, and your attack will be thwarted.
+## Defense
+You are a dev ops engineer at WellCo - a company that makes products that work well.
+You are on call, supporting an app that has been deployed to production.
+Unfortunately, this app has gained the reputation for being "the problem app". And now it's 23:30 on a Friday, and you get an SMS message.
 
-#### 5. Run the Server
+The "problem app" is acting up again. You suspect the site may even be under denial-of-service attack.
 
-```sh
-npm run dev
-```
+But how do you identify the vulnerability? Use your knowledge of Logplex and NewRelic to decide which endpoint is being attacked!  Once you've determined that, try to form a hypothesis as to which resource is being used up by the endpoint by inspecting New Relic and Logplex.
 
-That's it.  
-Now, ~~hack~~ *customise* it to your heart's content!
+## Turn About is Fair Play
+After you have successfully attacked and defended an end-point, switch roles! WellCo should attack EvilCorp.
+Pick a different endpoint, and work your way through until you can identify the signature of each attack, using Logplex and NewRelic.
+Happy hacking!
 
-### Demo Screenshots
+# 4 - Scaling
 
-When you visit http://localhost:8000/ you will see a login form, you can login with any valid email address:
-![hapi-login-01](https://cloud.githubusercontent.com/assets/194400/10522464/312648ca-736d-11e5-9f9f-36e39755b186.png)
+- https://devcenter.heroku.com/articles/scaling
+- https://devcenter.heroku.com/articles/node-concurrency
 
-Make sure the email address is valid:
-![hapi-login-03](https://cloud.githubusercontent.com/assets/194400/10522488/47a24568-736d-11e5-8f3b-47a08699b09a.png)
+## Exercise
+- Run an `artillery` command
+- Observe the `rps` (requests per second)
+- Scale the app out  (more dynos)
+- Re-run the `artillery` command
+- Observe the `rps` (requests per second) is higher
 
-Your password needs to be more than 6 characters long:
-![hapi-login-05](https://cloud.githubusercontent.com/assets/194400/10522520/78b44052-736d-11e5-919f-903270075795.png)
+Don't forget to scale down at the end of the day!
 
-We also use https://github.com/chriso/validator.js
-to mitigate [Cross Site Scripting](https://en.wikipedia.org/wiki/Cross-site_scripting)
-vulnerability:
+# 5 - Logging
+- https://devcenter.heroku.com/articles/papertrail
+- https://devcenter.heroku.com/articles/logentries
+Hit one of the error endpoints, setup triggers, and watch what happens in the log aggregators!
 
-Avoids Cross Site Scripting:
-![hapi login avoids XSS](https://cloud.githubusercontent.com/assets/194400/10522594/db57b45a-736d-11e5-969a-844d186db80b.png)
+# Heroku CI/CD and Review Apps
+## Setup the Pipeline
+- Open the app
+- Go to "Deploy"
+- Click "New Pipeline..."
+- Click "Create Pipeline"
+- Click on the menu for the app and select "Move app to `staging`"
 
+## Setup CI
+- Click on "Tests"
+- Click on "Connect to Github"
+- Search for heroku-workshop
+- Click "Connect"
+- Click "Enable Heroku CI"
+- Click the "Tests" tab
+- Click "+ New Test"
+- Click "Start Test Run"
+You should see the test pass.
 
-## Want *More*?
+## Continuous Deployment
+- Click on the app menu for the staging app
+- Click "Configure Automatic Deploys"
+- Check "Wait for CI to pass before deploy"
+- Click "Enable Automatic Deploys"
 
-If you would like to see this example *expanded*,
-please either [***create an issue***](https://github.com/dwyl/hapi-login-example-postgres/issues)
-with a *specific request* or [![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/)
+## Review Apps
+- Click "Enable Review Apps..."
+- Check "Create New..." and check "Destroy stale..."
+- Click "Enable"
+
+## View a Review App in Action
+- In Github go to your "Code" tab of your repo
+- Click "New Pull Request"
+- In the first dropdown choose your fork
+- The dropdowns will change
+- In the first dropdown choose "master"
+- In the second dropdown choose `pr-1-tasks-list`
+- You should see 3 changed files
+- Click "Create Pull Request"
+- In Heroku you should see that a new Review App will be created
+
+  > NOTE: Tests will _not_ run because for this demo you haven't created a new commit.  The tests would have been run when this branch was pushed in real life.
+
+- Open the URL and make sure things look good
+- Go to Github and merge the pull request
+- The tests should pass and it should auto-deploy
+
+And that's a real-life review-app -> CI -> CD scenario!
+
+## Viewing an error
+- Create a new pull request from master -> pr-2-task-create-test-broken
+  > This branch contains a test that will pass
+
+- You'll see that it creates a review app - you can ignore this
+- Manually trigger a test build
+
+  > NOTE: in production developers would be pushing code, and these would all be automatic.  But for this workshop we don't want you to write a lot of code...
+
+- Merge this broken code to master
+- You'll see that the staging app is _not_ rolled in
+- Merge pr-3-task-create-works into master (this fixes it)
+- You'll see that staging gets auto-deployed
