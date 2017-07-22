@@ -19,10 +19,10 @@ We use the following plugins:
 
 # 1 - Setup on Cloud9
 - Create a Cloud9 Account
-- Fork the Github repo (https://github.com/samuelsharaf/app-innovation-workshop) to your github account.
+- Fork the Github repo (https://github.com/heroku/app-innovation) to your github account.
 - On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation-workshop you will use the following command:
 ```
-git clone https://github.com/samuelsharaf/app-innovation-workshop
+git clone https://github.com/heroku/app-innovation
 ```
 - Once the cloud9 repo is created, Run this command:
   ```
