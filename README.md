@@ -1,4 +1,5 @@
-# Hapi Register + Login Example (*using*) PostgreSQL
+# Heroku App Innovation Workshop
+
 # Adding Heroku Button for Simple Deploy
 <a href="https://heroku.com/deploy">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
@@ -12,22 +13,6 @@ A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with
 [![Dependency Status](https://david-dm.org/dwyl/hapi-login-example-postgres.svg)](https://david-dm.org/dwyl/hapi-login-example-postgres)
 [![devDependencies Status](https://david-dm.org/dwyl/hapi-login-example-postgres/dev-status.svg)](https://david-dm.org/dwyl/hapi-login-example-postgres?type=dev)
 [![HitCount](https://hitt.herokuapp.com/dwyl/hapi-login-example-postgres.svg)](https://github.com/dwyl/hapi-login-example-postgres)
-
-## Why?
-
-We did not *find* an ***end-to-end*** solution/tutorial
-for ***login*** (*using email & password*) in Hapi.js apps,
-so we *wrote* it.
-
-By [***popular demand***](https://github.com/dwyl/hapi-register/issues/7#issuecomment-191713445)
-this example *focusses* on ***PostgreSQL***,  
-but it can *easily* be adapted to work with *any* backed/database.
-
-If ***anything*** is ***unclear*** in this (*or any of our other repos*),
-***please tell us***:
-[![Join the chat at https://gitter.im/dwyl/chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/dwyl/chat/)  
-
-
 
 ## What?
 
