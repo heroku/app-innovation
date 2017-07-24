@@ -63,7 +63,7 @@
   },
   "pre-commit": [
     "check-coverage"
-  ]
+  ],
   "environments": {
     "test": {
       "scripts": {
