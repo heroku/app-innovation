@@ -14,7 +14,7 @@ See the application running at:
 # App-Innovation-Workshop - Exercises
 
 # 1 - Setup on Cloud9
-- Create a Cloud9 Account
+- Create a Cloud9 Account - https://c9.io/signup
 - Fork the Github repo (https://github.com/heroku/app-innovation) to your github account.
 - On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation-workshop you will use the following command:
 ```
