@@ -87,3 +87,20 @@ You should see the test pass.
 - Open the app in the staging branch and verify that the App displays your team # instead of Acme Co.
 
 And that's a real-life review-app -> CI -> CD scenario!
+
+# Excercise 4 - Add Heroku Connect and Sync Data from Salesforce Org
+- From dashboard or command-line add Heroku Connect as an add-on
+- Click on Heroku Connect add-on and set up OAuth with the Salesforce DEV Org you signed up (pre-requisite step)
+    Note that for developer Org select Production Org as Org type
+    If you have access to your company’s sandbox Org you can also set up Heroku Connect with the Sandbox Org
+- Once the authorization is successful, click on ‘map objects’ and select a few objects e.g. account, contacts and opportunity to SYNC.
+- Setting up Sync 
+    You can either select polling (2 minutes to 60 minutes) or streaming API. For this exercise we recommend using Streaming API to highlight near realtime sync from SF to Heroku Postgres
+- Select a few fields under the objects to Sync, e.g. for the account object you can select name, city, state, etc.
+- Once the data sync is done, click on the logs tab analyze the logs and see if there were any errors. 
+- Click on the explore tab and review the synced data (PG & SF).
+
+#Excercise 5 - User Heroku Postgres DataClips and/or update your app to display synced data from DB
+- Once the data from the Salesforce Org is synced into Heroku database, you can query this data and show it in your app. You can do it either via Heroku Postgres Dataclips and/or using code to query the data and show it in a simple HTML5 page.
+- Reference this https://devcenter.heroku.com/articles/dataclips for creating dataclips
+
