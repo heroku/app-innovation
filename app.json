@@ -5,3 +5,13 @@
   "logo": "https://node-js-sample.herokuapp.com/node.png",
   "keywords": ["hapijs", "api", "postgres"]
 }
+{
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "gem install rubocop",
+        "test": "rubocop ."
+      }
+    }
+  }
+}
