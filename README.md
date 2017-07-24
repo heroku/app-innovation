@@ -7,14 +7,6 @@
 
 A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with a PostgreSQL DB
 
-## What?
-This repo is a *showcase* for how to build a login flow using Hapi.js.  
-We use the following plugins:
-+ [**hapi-register**](https://github.com/dwyl/hapi-register)
-+ [**hapi-login**](https://github.com/dwyl/hapi-login)
-+ [**hapi-postgres-connection**](https://github.com/dwyl/hapi-postgres-connection)
-+ [**hapi-auth-jwt2**](https://github.com/dwyl/hapi-auth-jwt2)
-
 # App-Innovation-Workshop - Exercises
 
 # 1 - Setup on Cloud9
@@ -30,7 +22,7 @@ git clone https://github.com/heroku/app-innovation
   ```
 
   
-# 2 - Deploy to Heroku and fix the error
+# 2 - Deploy the App to Heroku
 From the command-line in Cloud9 run the following commands:
 ```
 heroku login
@@ -38,8 +30,21 @@ heroku apps:create
 git push heroku master
 ```
 Open your Heroku app is it running? 
-Check the logs and identify what it needs.
-Add the required dependency.
+
+# 2a - Extend the App by adding Papertrail add-on
+Either from the Heroku Dashboard or command-line add either Papertrail or Logentries. 
+```
+e.g. heroku addons:create papertrail
+heroku addons:open papertrail
+```
+- Analyze the logs and see if you can figure out why the application is crashing
+
+# 2b - Extend the App by adding Heroku Postres DB
+In Heroku dashboard under the resource tab, search for Postgres in the add-on search box
+- Select Postgres Hobby Dev plan and provision it to your app.
+- Open the logs and verify that the database was added.
+- Verify if the application is still crashing or working?
+
 
 # 3 - Heroku CI/CD and Review Apps
 ## Setup the Pipeline
