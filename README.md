@@ -52,16 +52,16 @@ In Heroku dashboard under the resource tab, search for Postgres in the add-on se
 
 # 3 - Heroku CI/CD and Review Apps
 ## Setup the Pipeline
-- Open the app
-- Go to "Deploy"
+- Open the app in Heroku
+- Go to the Deploy tab
 - Click "New Pipeline..."
-- Click "Create Pipeline"
-- Click on the menu for the app and select "Move app to `staging`"
+- Click "Create Pipeline" and provide a name
+- In the pipleline dashboard, Click on the menu for the app and select "Move app to `staging`"
 
 ## Setup CI
 - Click on "Tests"
 - Click on "Connect to Github"
-- Search for heroku-workshop
+- Search for app-innovation repository
 - Click "Connect"
 - Click "Enable Heroku CI"
 - Click the "Tests" tab
