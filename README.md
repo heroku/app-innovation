@@ -1,11 +1,14 @@
 # Heroku App Innovation Workshop
+What will you be deploying? 
+A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with a PostgreSQL DB
+
+See the application running at: https://appinnov11.herokuapp.com/login
 
 # Adding Heroku Button for Simple Deploy
 <a href="https://heroku.com/deploy">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 
-A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with a PostgreSQL DB
 
 # App-Innovation-Workshop - Exercises
 
