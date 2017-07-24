@@ -100,7 +100,7 @@ And that's a real-life review-app -> CI -> CD scenario!
 - Once the data sync is done, click on the logs tab analyze the logs and see if there were any errors. 
 - Click on the explore tab and review the synced data (PG & SF).
 
-#Excercise 5 - User Heroku Postgres DataClips and/or update your app to display synced data from DB
+# Excercise 5 - User Heroku Postgres DataClips and/or update your app to display synced data from DB
 - Once the data from the Salesforce Org is synced into Heroku database, you can query this data and show it in your app. You can do it either via Heroku Postgres Dataclips and/or using code to query the data and show it in a simple HTML5 page.
 - Reference this https://devcenter.heroku.com/articles/dataclips for creating dataclips
 
