@@ -3,7 +3,7 @@ What will you be deploying?
 A login form using hapi-auth-register, hapi-auth-login &amp; hapi-auth-jwt2 with a PostgreSQL DB
 
 See the application running at: 
-<a href="https://appinnov11.herokuapp.com/" target="_blank"> https://appinnov11.herokuapp.com/ </a>
+<a href="https://appinnov11.herokuapp.com/login" target="_blank"> appinnov11.herokuapp.com/ </a>
 
 # Adding Heroku Button for Simple Deploy
 <a href="https://heroku.com/deploy">
