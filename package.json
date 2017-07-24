@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dwyl/hapi-login-example-postgres.git"
+    "url": "git+https://github.com/heroku/app-innovation.git"
   },
   "keywords": [
     "hapi",
@@ -64,4 +64,12 @@
   "pre-commit": [
     "check-coverage"
   ]
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "gem install rubocop",
+        "test": "rubocop ."
+      }
+    }
+  }
 }
