@@ -10,11 +10,11 @@ echo "\n-----------------------------"
 echo "Updating Heroku CLI..."
 echo "-----------------------------\n"
 
-heroku update
+brew install heroku
 
 echo "\n-----------------------------"
-echo "Setting up Yarn..."
+echo "Setting up Artillary..."
 echo "-----------------------------\n"
 
-npm install -g yarn
-yarn
+npm install -g artillery
+artillery dino
