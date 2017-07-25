@@ -10,7 +10,7 @@ echo "\n-----------------------------"
 echo "Updating Heroku CLI..."
 echo "-----------------------------\n"
 
-brew install heroku
+heroku update
 
 echo "\n-----------------------------"
 echo "Setting up Artillary..."
