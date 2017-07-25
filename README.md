@@ -1,9 +1,6 @@
 # App-Innovation-Workshop - Exercises
 A simple NodeJS app with ExpressJS
 
-<a href="https://heroku.com/deploy">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
 
 # 1 - Setup on Cloud9
 - Create a Cloud9 Account
