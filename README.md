@@ -1,6 +1,10 @@
 # App-Innovation-Workshop - Exercises
 A simple NodeJS app with ExpressJS
 
+<a href="https://heroku.com/deploy?template=https://github.com/heroku/node-js-getting">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a>
+
 # 1 - Setup on Cloud9
 - Create a Cloud9 Account
 - Fork the Github repo (https://github.com/heroku/app-innovation) to your github account.
