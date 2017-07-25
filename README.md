@@ -170,8 +170,6 @@ Don't forget to scale down at the end of the day!
 - In the first dropdown choose your fork
 - The dropdowns will change
 - In the first dropdown choose "master"
-- In the second dropdown choose `pr-1-tasks-list`
-- You should see 3 changed files
 - Click "Create Pull Request"
 - In Heroku you should see that a new Review App will be created
 
