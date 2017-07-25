@@ -74,7 +74,19 @@ INSERT 0 1
 => \q
 ```
 
-# 4 - Monitoring: Exercise
+# 4b - Add Heroku Connect
+Add Heroku Connect (Bi-directional sync engine between Heroku Postgres and Salesforce (sales and service clouds).
+```
+heroku addons:create herokuconnect
+```
+Click on Heroku Connect in the dashboard and provision the connection to the Salesforce DEV Org.
+- Map a few objects and corresponding fields 
+- Enable the streaming API for Sync from Salesforce to Heroku Postgres
+
+## Bonus -- Once the data is synced to database, modify the database code in previous step to output the results from Salesforce
+## Create a new route in index.js name it salesforce
+
+# 5 - Monitoring: Exercise
 ## Offense
 You are a hacker. You live in eastern hackistan. You have a contract with EvilCorp to take down a site that competes with them. Your mission is to take down WellCo!
 The discovery phase of your attack has already been completed. A colleague of yours has identified several HTTP endpoints that seem to have weaknesses:
@@ -110,10 +122,6 @@ After you have successfully attacked and defended an end-point, switch roles! We
 Pick a different endpoint, and work your way through until you can identify the signature of each attack, using Logplex and NewRelic.
 Happy hacking!
 
-# 4 - Scaling
-
-- https://devcenter.heroku.com/articles/scaling
-- https://devcenter.heroku.com/articles/node-concurrency
 
 ## Exercise
 - Run an `artillery` command
@@ -124,12 +132,8 @@ Happy hacking!
 
 Don't forget to scale down at the end of the day!
 
-# 5 - Logging
-- https://devcenter.heroku.com/articles/papertrail
-- https://devcenter.heroku.com/articles/logentries
-Hit one of the error endpoints, setup triggers, and watch what happens in the log aggregators!
 
-# Heroku CI/CD and Review Apps
+# 6 - Heroku CI/CD and Review Apps
 ## Setup the Pipeline
 - Open the app
 - Go to "Deploy"
