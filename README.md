@@ -1,7 +1,7 @@
 # App-Innovation-Workshop - Exercises
 A simple NodeJS app with ExpressJS
 
-<a href="https://heroku.com/deploy?template=https://github.com/heroku/node-js-getting">
+<a href="https://heroku.com/deploy">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 
