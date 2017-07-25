@@ -1,4 +1,5 @@
 # App-Innovation-Workshop - Exercises
+A simple NodeJS app with ExpressJS
 
 # 1 - Setup on Cloud9
 - Create a Cloud9 Account
@@ -22,7 +23,58 @@ git push heroku master
 ```
 Open your Heroku app and you should see the app running
 
-# 3 - Monitoring: Exercise
+# 3 - Extending the App with Logging add-on
+Extend the app with logging add-on
+```
+heroku addons:create papertrail
+heroku addons:open papertrail
+```
+
+# 4 - Extending the App with Postgres DB
+In this step you will add a free Heroku Postgres Starter Tier dev database to your app.
+```
+heroku addons:create heroku-postgresql:hobby-dev
+```
+Edit your package.json file to add the pg npm module to your dependencies:
+```
+"dependencies": {
+    "pg": "6.x",
+    "ejs": "2.5.6",
+    "express": "4.15.2",
+    "cool-ascii-faces": "1.3.4"
+}
+```
+- Now edit your index.js file to use this module to connect to the database specified in your DATABASE_URL environment variable:
+var pg = require('pg');
+```
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM test_table', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.render('pages/db', {results: result.rows} ); }
+    });
+  });
+});
+```
+- This ensures that when you access your app using the /db route, it will return all rows in the test_table table.
+
+- Create a table and insert a record
+```
+heroku pg:psql
+psql (9.5.2, server 9.6.2)
+SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
+Type "help" for help.
+=> create table test_table (id integer, name text);
+CREATE TABLE
+=> insert into test_table values (1, 'hello database');
+INSERT 0 1
+=> \q
+```
+
+# 4 - Monitoring: Exercise
 ## Offense
 You are a hacker. You live in eastern hackistan. You have a contract with EvilCorp to take down a site that competes with them. Your mission is to take down WellCo!
 The discovery phase of your attack has already been completed. A colleague of yours has identified several HTTP endpoints that seem to have weaknesses:
@@ -88,13 +140,13 @@ Hit one of the error endpoints, setup triggers, and watch what happens in the lo
 ## Setup CI
 - Click on "Tests"
 - Click on "Connect to Github"
-- Search for heroku-workshop
+- Search for heroku-innovation
 - Click "Connect"
 - Click "Enable Heroku CI"
 - Click the "Tests" tab
 - Click "+ New Test"
 - Click "Start Test Run"
-You should see the test pass.
+
 
 ## Continuous Deployment
 - Click on the app menu for the staging app
@@ -139,24 +191,6 @@ And that's a real-life review-app -> CI -> CD scenario!
 - You'll see that the staging app is _not_ rolled in
 - Merge pr-3-task-create-works into master (this fixes it)
 - You'll see that staging gets auto-deployed
-
-# Integrating with Sendgrid
-
-Sendgrid is a 3rd-Party Service that's integrated with Heroku.  Getting setup with Sendgrid couldn't be easier:
-
-- Add the Sendgrid addon
-
-  ```
-  heroku addons:create sendgrid:starter
-  ```
-
-- Login to Sendgrid
-- Create an api key at https://app.sendgrid.com/settings/api_keys
-- Set it on your app with `heroku config:set SENDGRID_API_KEY="..."`
-- Set the `FROM_EMAIL` environment variable `heroku config:set FROM_EMAIL="..."`
-- Create a task in your app
--
-
 
 
 
