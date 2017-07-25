@@ -1,4 +1,4 @@
-require('env2')('.env'); // see: https://github.com/dwyl/env2
+//require('env2')('.env'); // see: https://github.com/dwyl/env2
 var assert = require('assert');
 var pg = require('pg');
 
