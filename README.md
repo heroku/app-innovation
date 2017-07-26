@@ -169,10 +169,8 @@ Don't forget to scale down at the end of the day!
 
 ## View a Review App in Action
 - In Github go to your "Code" tab of your repo
+- Select a file e.g. views/pages/index.ejs and make a simple change like "Welcome to the Heroku Workshop"
 - Click "New Pull Request"
-- In the first dropdown choose your fork
-- The dropdowns will change
-- In the first dropdown choose "master"
 - Click "Create Pull Request"
 - In Heroku you should see that a new Review App will be created
 
