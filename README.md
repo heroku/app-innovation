@@ -19,7 +19,7 @@ git clone https://github.com/heroku/app-innovation
 From the command-line in Cloud9 run the following commands:
 ```
 heroku login
-heroku apps:create
+heroku create --app <appName> --team <teamName> (please replace appName with the app name you want and the team name with the assigned team)
 git push heroku master
 ```
 Open your Heroku app and you should see the app running
@@ -46,7 +46,10 @@ Edit your package.json file to add the pg npm module to your dependencies:
 }
 ```
 - Now edit your index.js file to use this module to connect to the database specified in your DATABASE_URL environment variable:
+```
 var pg = require('pg');
+```
+Copy paste the code below in the body of index.js
 ```
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
