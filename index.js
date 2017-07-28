@@ -61,7 +61,7 @@ app.get('/bins', function (req, res, next) {
   for (let i = 0; i < 1000; i++) func();
   res.json({hello: "World"})
 });
-router.get('/children', function (req, res, next) {
+app.get('/children', function (req, res, next) {
   var exec = require('child_process').exec;
   var cmd = 'sleep 1m';
   exec(cmd, function (error, stdout, stderr) {
