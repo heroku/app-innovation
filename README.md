@@ -1,10 +1,11 @@
 # App-Innovation-Workshop - Exercises
-A simple NodeJS app with ExpressJS
+What will you be deploying? 
+A simple NodeJS app with ExpressJS, add Heroku Postgres DB, Heroku Connect and integrate with Salesforce Org
 
 
 # 1 - Setup on Cloud9
 - Create a Cloud9 Account (https://c9.io/signup)
-- Fork the Github repo (https://github.com/heroku/app-innovation) to your github account.
+- Fork the Github repo (https://github.com/heroku/app-innovation) to your github account (via github dashboard).
 - On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation-workshop you will use the following command:
 ```
 git clone https://github.com/heroku/app-innovation
