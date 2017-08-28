@@ -2,6 +2,10 @@
 What will you be deploying? 
 A simple NodeJS app with ExpressJS, add Heroku Postgres DB, Heroku Connect and integrate with Salesforce Org
 
+# One slide overview of Heroku Architecture
+```
+https://goo.gl/c4T1A8
+```
 
 # 1 - Setup on Cloud9
 - Create a Cloud9 Account (https://c9.io/signup)
