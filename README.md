@@ -72,15 +72,13 @@ app.get('/db', function (request, response) {
 
 - Create a table and insert a record
 ```
-heroku pg:psql
-psql (9.5.2, server 9.6.2)
-SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
-Type "help" for help.
-=> create table test_table (id integer, name text);
-CREATE TABLE
-=> insert into test_table values (1, 'hello database');
-INSERT 0 1
-=> \q
+1. heroku pg:psql
+
+2. create table test_table (id integer, name text);
+
+3. insert into test_table values (1, 'hello database');
+
+4. \q
 ```
 
 # 4b - Add Heroku Connect
