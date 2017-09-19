@@ -39,7 +39,7 @@ app.get('/rockets', function (req, res, next) {
 });
 
 app.get('/beverages', function (req, res, next) {
-  console.error("418: I'm a teapot");
+  console.error("418: I'm a teapots");
   res.status(418).send("I'm a teapot"); // https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol
 });
 
