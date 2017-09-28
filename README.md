@@ -1,3 +1,14 @@
+# Heroku App Innovation Workshop Prerequisites
+## Required Online Accounts (mandatory)
+  - Sign up for Heroku free account at https://signup.heroku.com
+  - Create a free github account at https://github.com/join
+  - If using windows laptop (not mac or linux) sign up for Cloud9IDE at https://c9.io/signup
+  - Create a free Salesforce Developer Account at https://developer.salesforce.com/signup
+
+## Required Pre-work (not mandatory)
+  - Complete the Salesforce trails which will get you started with the basics of deploying apps on Heroku at https://trailhead.salesforce.com/en/trails/heroku_enterprise
+
+
 # App-Innovation-Workshop - Exercises
 What will you be deploying? 
 A simple NodeJS app with ExpressJS, add Heroku Postgres DB, Heroku Connect and integrate with Salesforce Org
@@ -7,8 +18,7 @@ A simple NodeJS app with ExpressJS, add Heroku Postgres DB, Heroku Connect and i
 https://goo.gl/c4T1A8
 ```
 
-# 1 - Setup on Cloud9
-- Create a Cloud9 Account (https://c9.io/signup)
+# 1 - Fork the Github Repository and setup Dev Environment
 - Fork the Github repo (https://github.com/heroku/app-innovation) to your github account (via github dashboard).
 - On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation you will use the following command:
 ```
@@ -18,7 +28,7 @@ git clone https://github.com/heroku/app-innovation
   ```
   sh setup.sh && . ~/.profile
   ```
-
+- Note that if using Mac or Linux laptops, Cloud9 is not mandatory but highly recommended. 
   
 # 2 - Deploy to Heroku
 From the command-line in Cloud9 run the following commands:
