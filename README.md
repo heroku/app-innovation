@@ -18,7 +18,7 @@ A simple NodeJS app with ExpressJS, add Heroku Postgres DB, Heroku Connect and i
 https://goo.gl/c4T1A8
 ```
 
-# 1 - Fork the Github Repository and setup Dev Environment
+# 1 - Fork the Github Repository and Setup Dev Environment
 - Fork the Github repo (https://github.com/heroku/app-innovation) to your github account (via github dashboard).
 - On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation you will use the following command:
 ```
