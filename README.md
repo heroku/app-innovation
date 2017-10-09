@@ -19,23 +19,36 @@ https://goo.gl/c4T1A8
 ```
 
 # 1 - Fork the Github Repository and Setup Dev Environment
-- Fork the Github repo (https://github.com/heroku/app-innovation) to your github account (via github dashboard).
-- On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation you will use the following command:
+- Signup for a Heroku account, or use your Corporate login
+- Create a Cloud9 IDE Account (https://c9.io/signup) - be sure you sign up for the free version. A credit card may be required as of 2016, but it will not be charged.
+-- Create a new C9 workspace: Choose a name, Select "Private", and choose the "NodeJS" template 
+- Find your salesforce Developer Edition org login (sign up for a new org (https://developer.salesforce.com/signup), or use an existing one)
+- To ensure you don't update these files in the original github repo, fork the Github repo (https://github.com/heroku/app-innovation) to your github account (via github dashboard).
+- On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation you will use the following command in the console at the bottom of the C9 Workspace.:
 ```
-git clone https://github.com/heroku/app-innovation
+git clone https://github.com/heroku/app-innovation 
 ```
 - Once the cloud9 repo is created, Run this command:
   ```
   sh setup.sh && . ~/.profile
-  ```
-- Note that if using Mac or Linux laptops, Cloud9 is not mandatory but highly recommended. 
   
+  ```
+- Upgrade the Heroku Toolbelt
+  First, remove the directory ~/.local/share/heroku/:
+  ```
+  rm -rf ~/.local/share/heroku/
+  ```
+- Then download the latest heroku toolbelt 
+  ```
+  wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+  ```
+
 # 2 - Deploy to Heroku
 From the command-line in Cloud9 run the following commands:
 ```
-heroku login
+heroku login // Note: if this command fails, be sure you upgraded the heroku toolbelt above
 heroku create --app <appName> --team <teamName> (please replace appName with the app name you want and the team name with the assigned team)
-git push heroku master
+git push heroku master //this pushes the code from the master branch of the github repo, up to your new heroku app
 ```
 Open your Heroku app and you should see the app running
 
@@ -59,7 +72,10 @@ Edit your package.json file to add the pg npm module to your dependencies:
     "express": "4.15.2",
     "cool-ascii-faces": "1.3.4"
 }
+
+//Note: You can edit the code in VI in the command line, or just double click on the file on the left side of the c9.io IDE - easier right?
 ```
+
 - Now edit your index.js file to use this module to connect to the database specified in your DATABASE_URL environment variable:
 ```
 var pg = require('pg');
@@ -67,7 +83,7 @@ var pg = require('pg');
 Copy paste the code below in the body of index.js
 ```
 app.get('/db', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) { //This line may give you a warning... it can be ignored
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
       if (err)
@@ -92,11 +108,12 @@ app.get('/db', function (request, response) {
 ```
 
 # 4b - Add Heroku Connect
-Add Heroku Connect (Bi-directional sync engine between Heroku Postgres and Salesforce (sales and service clouds).
+Add a demo version of Heroku Connect (Bi-directional sync engine between Heroku Postgres and Salesforce (sales and service clouds). 
+Note: This demo version of Heroku Connect keeps 10k rows in sync between salesforce and your app's PG database.
 ```
-heroku addons:create herokuconnect
+heroku addons:create herokuconnect:demo
 ```
-Click on Heroku Connect in the dashboard and provision the connection to the Salesforce DEV Org.
+Click on Heroku Connect in the dashboard and provision the connection to a Salesforce Developer Edition Org.
 - Map a few objects and corresponding fields 
 - Enable the streaming API for Sync from Salesforce to Heroku Postgres
 
