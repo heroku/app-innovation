@@ -46,10 +46,19 @@ git clone https://github.com/heroku/app-innovation
 # 2 - Deploy to Heroku
 From the command-line in Cloud9 run the following commands:
 ```
-heroku login // Note: if this command fails, be sure you upgraded the heroku toolbelt above
-heroku create --app <appName> --team <teamName> (please replace appName with the app name you want and the team name with the assigned team)
-git push heroku master //this pushes the code from the master branch of the github repo, up to your new heroku app
+heroku login 
 ```
+Note: if this command fails, be sure you upgraded the heroku toolbelt above
+```
+heroku create --app <appName> --team <teamName> 
+```
+Please replace "appName" with the app name you want and the team name with the assigned team
+```
+git push heroku master 
+```
+This pushes the code from the master branch of the github repo, up to your new heroku app
+
+
 Open your Heroku app and you should see the app running
 
 # 3 - Extending the App with Logging add-on
@@ -83,7 +92,7 @@ var pg = require('pg');
 Copy paste the code below in the body of index.js
 ```
 app.get('/db', function (request, response) {
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) { //This line may give you a warning... it can be ignored
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) { 
     client.query('SELECT * FROM test_table', function(err, result) {
       done();
       if (err)
@@ -94,6 +103,8 @@ app.get('/db', function (request, response) {
   });
 });
 ```
+If you get errors from the pg.connect line above, you can ignore them
+
 - This ensures that when you access your app using the /db route, it will return all rows in the test_table table.
 
 - Create a table and insert a record
@@ -117,8 +128,9 @@ Click on Heroku Connect in the dashboard and provision the connection to a Sales
 - Map a few objects and corresponding fields 
 - Enable the streaming API for Sync from Salesforce to Heroku Postgres
 
-## Bonus -- Once the data is synced to database, modify the database code in previous step to output the results from Salesforce
-## Create a new route in index.js name it salesforce
+## Bonus
+Once the data is synced to database, modify the database code in the previous step to output the results from Salesforce
+Create a new route in index.js, name it salesforce
 
 # 5 - Monitoring: Exercise
 ## Offense
