@@ -1,11 +1,26 @@
+# Heroku App Innovation Workshop Prerequisites
+## Required Online Accounts (mandatory)
+  - Sign up for Heroku free account at https://signup.heroku.com
+  - Create a free github account at https://github.com/join
+  - If using windows laptop (not mac or linux) sign up for Cloud9IDE at https://c9.io/signup
+  - Create a free Salesforce Developer Account at https://developer.salesforce.com/signup
+
+## Required Pre-work (not mandatory)
+  - Complete the Salesforce trails which will get you started with the basics of deploying apps on Heroku at https://trailhead.salesforce.com/en/trails/heroku_enterprise
+
+
 # App-Innovation-Workshop - Exercises
-A simple NodeJS app with ExpressJS
+What will you be deploying? 
+A simple NodeJS app with ExpressJS, add Heroku Postgres DB, Heroku Connect and integrate with Salesforce Org
 
+# One slide overview of Heroku Architecture
+```
+https://goo.gl/c4T1A8
+```
 
-# 1 - Setup on Cloud9
-- Create a Cloud9 Account
-- Fork the Github repo (https://github.com/heroku/app-innovation) to your github account.
-- On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation-workshop you will use the following command:
+# 1 - Fork the Github Repository and Setup Dev Environment
+- Fork the Github repo (https://github.com/heroku/app-innovation) to your github account (via github dashboard).
+- On Cloud9 console clone the repo e.g. if you are cloning from heroku/app-innovation you will use the following command:
 ```
 git clone https://github.com/heroku/app-innovation
 ```
@@ -13,13 +28,13 @@ git clone https://github.com/heroku/app-innovation
   ```
   sh setup.sh && . ~/.profile
   ```
-
+- Note that if using Mac or Linux laptops, Cloud9 is not mandatory but highly recommended. 
   
 # 2 - Deploy to Heroku
 From the command-line in Cloud9 run the following commands:
 ```
 heroku login
-heroku apps:create
+heroku create --app <appName> --team <teamName> (please replace appName with the app name you want and the team name with the assigned team)
 git push heroku master
 ```
 Open your Heroku app and you should see the app running
@@ -46,7 +61,10 @@ Edit your package.json file to add the pg npm module to your dependencies:
 }
 ```
 - Now edit your index.js file to use this module to connect to the database specified in your DATABASE_URL environment variable:
+```
 var pg = require('pg');
+```
+Copy paste the code below in the body of index.js
 ```
 app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -64,15 +82,13 @@ app.get('/db', function (request, response) {
 
 - Create a table and insert a record
 ```
-heroku pg:psql
-psql (9.5.2, server 9.6.2)
-SSL connection (cipher: DHE-RSA-AES256-SHA, bits: 256)
-Type "help" for help.
-=> create table test_table (id integer, name text);
-CREATE TABLE
-=> insert into test_table values (1, 'hello database');
-INSERT 0 1
-=> \q
+1. heroku pg:psql
+
+2. create table test_table (id integer, name text);
+
+3. insert into test_table values (1, 'hello database');
+
+4. \q
 ```
 
 # 4b - Add Heroku Connect
@@ -166,10 +182,8 @@ Don't forget to scale down at the end of the day!
 
 ## View a Review App in Action
 - In Github go to your "Code" tab of your repo
+- Select a file e.g. views/pages/index.ejs and make a simple change like "Welcome to the Heroku Workshop"
 - Click "New Pull Request"
-- In the first dropdown choose your fork
-- The dropdowns will change
-- In the first dropdown choose "master"
 - Click "Create Pull Request"
 - In Heroku you should see that a new Review App will be created
 

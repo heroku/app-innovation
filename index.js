@@ -61,6 +61,14 @@ app.get('/bins', function (req, res, next) {
   for (let i = 0; i < 1000; i++) func();
   res.json({hello: "World"})
 });
+app.get('/children', function (req, res, next) {
+  var exec = require('child_process').exec;
+  var cmd = 'sleep 1m';
+  exec(cmd, function (error, stdout, stderr) {
+    // command output is in stdout
+  });
+  res.json({hello: "World"})
+});
 //////
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
