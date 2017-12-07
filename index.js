@@ -19,6 +19,18 @@ app.get('/messages', function (req, res, next) {
   }, 500);
 });
 
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) { 
+    client.query('SELECT * FROM Account', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.render('pages/db', {results: result.rows} ); }
+    });
+  });
+});
+
 app.get('/clocks', function (req, res, next) {
   const start = new Date().getTime();
   while (new Date().getTime() < start + 100);
