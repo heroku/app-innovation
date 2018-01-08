@@ -3,14 +3,14 @@ echo "Updating Node..."
 echo "-----------------------------\n"
 
 . ~/.profile
-nvm install 7
-nvm alias default 7
+nvm install stable
+nvm current
 
 echo "\n-----------------------------"
 echo "Updating Heroku CLI..."
 echo "-----------------------------\n"
 
-heroku update
+npm install -g heroku-cli
 
 echo "\n-----------------------------"
 echo "Setting up Artillary..."
