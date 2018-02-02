@@ -2,7 +2,7 @@
 ## Required Online Accounts (mandatory)
   - Sign up for Heroku free account at https://signup.heroku.com
   - Create a free github account at https://github.com/join
-  - If using windows laptop (not mac or linux) sign up for Cloud9IDE at https://c9.io/signup
+  - If using windows laptop (not mac or linux) sign up for Cloud9IDE at https://aws.amazon.com/cloud9/
   - Create a free Salesforce Developer Account at https://developer.salesforce.com/signup
 
 ## Required Pre-work (not mandatory)
