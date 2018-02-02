@@ -190,7 +190,7 @@ Don't forget to scale down at the end of the day!
 ## Setup CI
 - Click on "Tests"
 - Click on "Connect to Github"
-- Search for heroku-innovation
+- Search for app-innovation
 - Click "Connect"
 - Click "Enable Heroku CI"
 - Click the "Tests" tab
