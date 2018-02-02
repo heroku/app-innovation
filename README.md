@@ -223,21 +223,3 @@ Don't forget to scale down at the end of the day!
 - The tests should pass and it should auto-deploy
 
 And that's a real-life review-app -> CI -> CD scenario!
-
-## Viewing an error
-- Create a new pull request from master -> pr-2-task-create-test-broken
-  > This branch contains a test that will pass
-
-- You'll see that it creates a review app - you can ignore this
-- Manually trigger a test build
-
-  > NOTE: in production developers would be pushing code, and these would all be automatic.  But for this workshop we don't want you to write a lot of code...
-
-- Merge this broken code to master
-- You'll see that the staging app is _not_ rolled in
-- Merge pr-3-task-create-works into master (this fixes it)
-- You'll see that staging gets auto-deployed
-
-
-
-
