@@ -5,7 +5,7 @@
   - If using windows laptop (not mac or linux) sign up for Cloud9IDE at https://aws.amazon.com/cloud9/
   - Create a free Salesforce Developer Account at https://developer.salesforce.com/signup
 
-## Required Pre-work (not mandatory)
+## Pre-work (not mandatory)
   - Complete the Salesforce trails which will get you started with the basics of deploying apps on Heroku at https://trailhead.salesforce.com/en/trails/heroku_enterprise
 
 
