@@ -20,7 +20,7 @@ https://goo.gl/c4T1A8
 
 # 1 - Fork the Github Repository and Setup Dev Environment
 - Signup for a Heroku account, or use your Corporate login
-- Create a Cloud9 IDE Account (https://c9.io/signup) - be sure you sign up for the free version. A credit card may be required as of 2016, but it will not be charged.
+- Create a Cloud9 IDE Account (https://aws.amazon.com/cloud9/) - be sure you sign up for the free version. A credit card may be required as of 2016, but it will not be charged.
 -- Create a new C9 workspace: Choose a name, Select "Private", and choose the "NodeJS" template 
 - Find your salesforce Developer Edition org login (sign up for a new org (https://developer.salesforce.com/signup), or use an existing one)
 - To ensure you don't update these files in the original github repo, fork the Github repo (https://github.com/heroku/app-innovation) to your github account (via github dashboard).
