@@ -10,7 +10,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "ejs": "2.5.6",
+    "ejs": "3.1.10",
     "express": "4.15.2"
   },
   "repository": {
